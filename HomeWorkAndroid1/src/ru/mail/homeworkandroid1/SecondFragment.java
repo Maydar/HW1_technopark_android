@@ -13,15 +13,40 @@ import android.widget.TextView;
 public class SecondFragment extends Fragment {
 	
 	TextView left, right;
-	String text;
+	String text = "";
 	@SuppressLint("NewApi")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		getActivity().setContentView(R.layout.second_fragment);
-		left = (TextView)getActivity().findViewById(R.id.txt_view1);
-		right = (TextView)getActivity().findViewById(R.id.txt_view2);
-		text = getActivity().getIntent().getStringExtra(MainActivity.SECOND_ACTIVITY_EXTRA);
+		text = getArguments().getString(MainActivity.SECOND_ACTIVITY_EXTRA);
+		return inflater.inflate(R.layout.second_fragment, container, false);
+	}
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		// TODO Auto-generated method stub
+		super.onCreateOptionsMenu(menu, inflater);
+	}
+	
+	@Override
+	public void setMenuVisibility(boolean menuVisible) {
+		// TODO Auto-generated method stub
+		super.setMenuVisibility(menuVisible);
+		
+		if (menuVisible) {
+			
+		}
+	}
+	
+	@SuppressLint("NewApi")
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		View view = getActivity().getLayoutInflater().inflate(R.layout.second_fragment, null);
+		
+		left = (TextView)view.findViewById(R.id.txt_view1_fragment);
+		right = (TextView)view.findViewById(R.id.txt_view2_fragment);
+		
 		if(text.isEmpty()) {
 			left.setText("Нет текста");
 			right.setText("Нет текста");
@@ -33,12 +58,6 @@ public class SecondFragment extends Fragment {
 			left.setText(leftText);
 			right.setText(rightText);
 		}
-		return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		// TODO Auto-generated method stub
-		super.onCreateOptionsMenu(menu, inflater);
 	}
 
 }

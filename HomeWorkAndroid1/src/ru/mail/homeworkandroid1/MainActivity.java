@@ -2,9 +2,11 @@ package ru.mail.homeworkandroid1;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
@@ -17,17 +19,35 @@ public class MainActivity extends FragmentActivity implements FragmentDialogue.F
 	public static final String SECOND_ACTIVITY_EXTRA = "EXTRA_SECOND_ACTIVITY";
 	public static final String FOURTH_ACTIVITY_EXTRA = "EXTRA_FOURTH_ACTIVITY";
 	private EditText edit2;
+	private Fragment secondFragment;
 		
 	public void showDialog() {
 		DialogFragment newFragment = new FragmentDialogue();
 		newFragment.show(getSupportFragmentManager(), "");
 	}
+	
+	public void showSecondFragment(Bundle arguments) {	
+		secondFragment.setArguments(arguments);
+		android.support.v4.app.FragmentTransaction fTransaction = getSupportFragmentManager().beginTransaction();
+		fTransaction.replace(R.id.fragment_container, secondFragment);
+		fTransaction.commit();
+	}
+	
+	public void showThirdFragment() {
+		
+	}
+	
+	public void showFourthFragment() {
+		
+	}
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		
+		secondFragment = new SecondFragment();
 		
 		if(savedInstanceState != null) {
 			edit2 = (EditText)findViewById(R.id.edit_text1);
@@ -44,19 +64,16 @@ public class MainActivity extends FragmentActivity implements FragmentDialogue.F
 		});
 		
 		ImageButton homeButton =(ImageButton)findViewById(R.id.imgbtn1);
+		
 		homeButton.setOnClickListener(new View.OnClickListener() {
 			
 			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
-			//	Fragment fragment = new SecondFragment();
-			//	FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-			//	fragmentTransaction.add(R.id.fragment1, fragment);
-				//fragmentTransaction.commit();
-				/*Intent i = new Intent(MainActivity.this, SecondFragment.class);
 				edit2 = (EditText)findViewById(R.id.edit_text1);
-				i.putExtra(SECOND_ACTIVITY_EXTRA, edit2.getText().toString());
-				startActivity(i);*/	
+				Bundle bundle = new Bundle();
+				bundle.putString(SECOND_ACTIVITY_EXTRA, edit2.getText().toString());
+				showSecondFragment(bundle);
 			}
 		});
 		

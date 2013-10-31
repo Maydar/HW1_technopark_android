@@ -35,7 +35,7 @@ public final class R {
         public static final int inter=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f080018;
+        public static final int action_settings=0x7f08001d;
         public static final int body=0x7f080003;
         public static final int btn1=0x7f08000b;
         public static final int btn2=0x7f08000c;
@@ -47,17 +47,22 @@ public final class R {
         public static final int edit_text_dlg=0x7f080008;
         public static final int footer=0x7f08000d;
         public static final int footer_act4=0x7f080004;
+        public static final int fragment_container=0x7f080014;
         public static final int header=0x7f08000a;
         public static final int header_act4=0x7f080000;
-        public static final int img_view1=0x7f080014;
-        public static final int img_view2=0x7f080015;
+        public static final int img_view1=0x7f080015;
+        public static final int img_view1_fragment=0x7f080019;
+        public static final int img_view2=0x7f080016;
+        public static final int img_view2_fragment=0x7f08001a;
         public static final int imgbtn1=0x7f080011;
         public static final int imgbtn2=0x7f080012;
         public static final int imgbtn3=0x7f080013;
         public static final int inter_logo=0x7f080001;
         public static final int text_view0=0x7f08000e;
-        public static final int txt_view1=0x7f080016;
-        public static final int txt_view2=0x7f080017;
+        public static final int txt_view1=0x7f080017;
+        public static final int txt_view1_fragment=0x7f08001b;
+        public static final int txt_view2=0x7f080018;
+        public static final int txt_view2_fragment=0x7f08001c;
         public static final int txt_view3=0x7f080002;
         public static final int txt_view4=0x7f080006;
     }

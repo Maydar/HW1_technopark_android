@@ -8,9 +8,53 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SecondFragment" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <RelativeLayout 
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+	    >
+	    <ImageView
+	        android:id="@+id/img_view1_fragment"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+	        android:src="@drawable/i_1379875134_robot_64" 
+	        android:layout_alignParentLeft="true"
+	        />
+	    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/header" 
+            android:layout_toLeftOf="@+id/img_view2_fragment"
+        	android:layout_toRightOf="@+id/img_view1_fragment" />
+	   	<ImageView
+	   	    android:id="@+id/img_view2_fragment"
+	        android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+	        android:src="@drawable/i_1379875129_github_64" 
+	        android:layout_alignParentRight="true"
+	        />
+	    
+	</RelativeLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+
+	    <TextView
+	        android:id="@+id/txt_view1_fragment"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1" 
+	        android:gravity="center"/>
+
+	    <TextView
+	        android:id="@+id/txt_view2_fragment"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="center" />
+	</LinearLayout>
 
 </RelativeLayout>
