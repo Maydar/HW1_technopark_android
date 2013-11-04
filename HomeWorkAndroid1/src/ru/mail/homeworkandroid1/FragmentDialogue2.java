@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 public class FragmentDialogue2 extends android.support.v4.app.DialogFragment {
 	
 	public interface FragmentDialogListener {
-        public void onDialogPositiveClick(android.support.v4.app.DialogFragment dialog);
-        public void onDialogNegativeClick(android.support.v4.app.DialogFragment dialog);
+        public void onDialogPositiveClick2(android.support.v4.app.DialogFragment dialog);
+        public void onDialogNegativeClick2(android.support.v4.app.DialogFragment dialog);
     }
 	
 	FragmentDialogListener fListener;
@@ -36,7 +36,7 @@ public class FragmentDialogue2 extends android.support.v4.app.DialogFragment {
 							
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-								fListener.onDialogPositiveClick(FragmentDialogue2.this);
+								fListener.onDialogPositiveClick2(FragmentDialogue2.this);
 								
 							}
 						})
@@ -44,7 +44,7 @@ public class FragmentDialogue2 extends android.support.v4.app.DialogFragment {
 							
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-								fListener.onDialogNegativeClick(FragmentDialogue2.this);
+								fListener.onDialogNegativeClick2(FragmentDialogue2.this);
 								
 								
 							}

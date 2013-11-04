@@ -28,7 +28,7 @@ public class FourthActivity extends FragmentActivity implements FragmentDialogue
 		
 		left = (TextView)findViewById(R.id.txt_view3);
 		right = (TextView)findViewById(R.id.txt_view4);
-		text = getIntent().getStringExtra(MainActivity.FOURTH_ACTIVITY_EXTRA);
+		text = getIntent().getStringExtra(MainFragment.FOURTH_ACTIVITY_EXTRA);
 		if(text.isEmpty()) {
 			left.setText("Нет текста");
 			right.setText("Нет текста");
@@ -58,14 +58,15 @@ public class FourthActivity extends FragmentActivity implements FragmentDialogue
 		return true;
 	}
 
+
 	@Override
-	public void onDialogPositiveClick(DialogFragment dialog) {
+	public void onDialogPositiveClick2(DialogFragment dialog) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onDialogNegativeClick(DialogFragment dialog) {
+	public void onDialogNegativeClick2(DialogFragment dialog) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -17,7 +17,7 @@ public class SecondActivity extends Activity{
 		setContentView(R.layout.activity_second);
 		left = (TextView)findViewById(R.id.txt_view1);
 		right = (TextView)findViewById(R.id.txt_view2);
-		text = getIntent().getStringExtra(MainActivity.SECOND_ACTIVITY_EXTRA);
+		text = getIntent().getStringExtra(MainFragment.SECOND_ACTIVITY_EXTRA);
 		if(text.isEmpty()) {
 			left.setText("Нет текста");
 			right.setText("Нет текста");

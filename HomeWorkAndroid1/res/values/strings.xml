@@ -16,5 +16,8 @@
     <string name="title_activity_fourth">FourthActivity</string>
     <string name="title_activity_fragment_dialogue2">FragmentDialogue2</string>
     <string name="title_activity_second_fragment">SecondFragment</string>
+    <string name="title_activity_main_fragment">MainFragment</string>
+    <string name="title_activity_third_fragment">ThirdFragment</string>
+    <string name="title_activity_fourh_fragment">FourhFragment</string>
 
 </resources>

@@ -14,31 +14,50 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class MainActivity extends FragmentActivity implements FragmentDialogue.FragmentDialogListener {
-	public static final String SAVE_STATE_STRING = "edit_text";
-	public static final String SECOND_ACTIVITY_EXTRA = "EXTRA_SECOND_ACTIVITY";
-	public static final String FOURTH_ACTIVITY_EXTRA = "EXTRA_FOURTH_ACTIVITY";
-	private EditText edit2;
-	private Fragment secondFragment;
-		
+public class MainActivity extends FragmentActivity implements FragmentDialogue.FragmentDialogListener, 
+							FragmentDialogue2.FragmentDialogListener{
+	
+	private MainFragment mainFragment;
+	private SecondFragment secondFragment;
+	private ThirdFragment thirdFragment;
+	private FourhFragment fourhFragment;
+	
 	public void showDialog() {
 		DialogFragment newFragment = new FragmentDialogue();
 		newFragment.show(getSupportFragmentManager(), "");
 	}
 	
+	public void showDialog2() {
+		DialogFragment newFragment = new FragmentDialogue2();
+		newFragment.show(getSupportFragmentManager(), "");
+	}
+	
 	public void showSecondFragment(Bundle arguments) {	
+		secondFragment = new SecondFragment();
 		secondFragment.setArguments(arguments);
 		android.support.v4.app.FragmentTransaction fTransaction = getSupportFragmentManager().beginTransaction();
 		fTransaction.replace(R.id.fragment_container, secondFragment);
+		fTransaction.addToBackStack(null);
 		fTransaction.commit();
+		
 	}
 	
 	public void showThirdFragment() {
-		
+		thirdFragment = new ThirdFragment();
+		android.support.v4.app.FragmentTransaction fTransaction = getSupportFragmentManager().beginTransaction();
+		fTransaction.replace(R.id.fragment_container, thirdFragment);
+		fTransaction.addToBackStack(null);
+		fTransaction.commit();
 	}
 	
-	public void showFourthFragment() {
-		
+	
+	public void showFourthFragment(Bundle argBundle) {
+		fourhFragment = new FourhFragment();
+		fourhFragment.setArguments(argBundle);
+		android.support.v4.app.FragmentTransaction fTransaction = getSupportFragmentManager().beginTransaction();
+		fTransaction.replace(R.id.fragment_container, fourhFragment);
+		fTransaction.addToBackStack(null);
+		fTransaction.commit();
 	}
 	
 	
@@ -46,64 +65,13 @@ public class MainActivity extends FragmentActivity implements FragmentDialogue.F
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		mainFragment = new MainFragment();
+		android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+		fragmentTransaction.add(R.id.fragment_container, mainFragment);
+		fragmentTransaction.addToBackStack(null);
+		fragmentTransaction.commit();
 		
-		secondFragment = new SecondFragment();
-		
-		if(savedInstanceState != null) {
-			edit2 = (EditText)findViewById(R.id.edit_text1);
-			edit2.setText(savedInstanceState.getString(SAVE_STATE_STRING));	
-		}
-		
-		Button dialogButton = (Button)findViewById(R.id.dialogue_btn);
-		dialogButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				showDialog();
-			}
-		});
-		
-		ImageButton homeButton =(ImageButton)findViewById(R.id.imgbtn1);
-		
-		homeButton.setOnClickListener(new View.OnClickListener() {
-			
-			@SuppressLint("NewApi")
-			@Override
-			public void onClick(View v) {
-				edit2 = (EditText)findViewById(R.id.edit_text1);
-				Bundle bundle = new Bundle();
-				bundle.putString(SECOND_ACTIVITY_EXTRA, edit2.getText().toString());
-				showSecondFragment(bundle);
-			}
-		});
-		
-		
-		
-		
-		ImageButton gearButton =(ImageButton)findViewById(R.id.imgbtn2);
-		gearButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, ThirdActivity.class);
-				
-				startActivity(i);
-				
-			}
-		});
-		
-		ImageButton mailButton =(ImageButton)findViewById(R.id.imgbtn3);
-		mailButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, FourthActivity.class);
-				edit2 = (EditText)findViewById(R.id.edit_text1);
-				i.putExtra(FOURTH_ACTIVITY_EXTRA, edit2.getText().toString());
-				startActivity(i);
-				
-			}
-		});
+
 		
 		
 	}
@@ -115,24 +83,34 @@ public class MainActivity extends FragmentActivity implements FragmentDialogue.F
 		
 	}
 	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		
+	}
+	
+	@Override
 	public void onDialogPositiveClick(DialogFragment dialog) {
 		Dialog dialogView = dialog.getDialog();
 	    EditText edit_dlg = ((EditText)dialogView.findViewById(R.id.edit_text_dlg));
-;
+	    EditText edit2 = mainFragment.edit2;
 		edit2 = (EditText)findViewById(R.id.edit_text1);		
 		edit2.setText(edit_dlg.getText().toString());
 	}
 	@Override
 	public void onDialogNegativeClick(DialogFragment dialog) {
+		
+	}
+
+	@Override
+	public void onDialogPositiveClick2(DialogFragment dialog) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
+	public void onDialogNegativeClick2(DialogFragment dialog) {
 		// TODO Auto-generated method stub
-		super.onSaveInstanceState(outState);
-		edit2 = (EditText)findViewById(R.id.edit_text1);	
-		outState.putString(SAVE_STATE_STRING, edit2.getText().toString());
 		
 	}
 
