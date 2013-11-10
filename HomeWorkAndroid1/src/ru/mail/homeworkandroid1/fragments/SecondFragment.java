@@ -1,5 +1,6 @@
-package ru.mail.homeworkandroid1;
+package ru.mail.homeworkandroid1.fragments;
 
+import ru.mail.homeworkandroid1.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,5 +1,12 @@
-package ru.mail.homeworkandroid1;
+package ru.mail.homeworkandroid1.activities;
 
+import ru.mail.homeworkandroid1.R;
+import ru.mail.homeworkandroid1.dialogues.FragmentDialogue;
+import ru.mail.homeworkandroid1.dialogues.FragmentDialogue2;
+import ru.mail.homeworkandroid1.fragments.FourhFragment;
+import ru.mail.homeworkandroid1.fragments.MainFragment;
+import ru.mail.homeworkandroid1.fragments.SecondFragment;
+import ru.mail.homeworkandroid1.fragments.ThirdFragment;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.FragmentTransaction;

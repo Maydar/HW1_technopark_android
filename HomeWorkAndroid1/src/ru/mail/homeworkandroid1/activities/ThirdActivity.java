@@ -1,5 +1,6 @@
-package ru.mail.homeworkandroid1;
+package ru.mail.homeworkandroid1.activities;
 
+import ru.mail.homeworkandroid1.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
